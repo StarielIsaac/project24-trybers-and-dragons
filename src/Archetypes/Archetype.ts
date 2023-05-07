@@ -1,3 +1,5 @@
+import { EnergyType } from '../Energy';
+
 export default abstract class Archetype {
   private _name : string;
   private _special : number;
@@ -26,4 +28,7 @@ export default abstract class Archetype {
   static createdArchetypeInstances() : number {
     throw new Error('Not implemented');
   }
+
+  // corresponde ao tipo de energia que este arquétipo deve ter (mana ou stamina)
+  abstract get energyType() : EnergyType;
 }
