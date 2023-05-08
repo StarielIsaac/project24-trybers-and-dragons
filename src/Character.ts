@@ -39,6 +39,49 @@ export default class Character implements Fighter {
     };
     this._name = name; 
   }
+  attack(attackPoints: Fighter): void {
+    throw new Error('Method not implemented.');
+  }
+
+  special?(enemy: Fighter): void {
+    throw new Error('Method not implemented.');
+  }
+
+  levelUp(): void {
+    throw new Error('Method not implemented.');
+  }
+  
+  receiveDamage(attackPoints: number): number {
+    throw new Error('Method not implemented.');
+  }
+
+  public race() : Race {
+    return this._race;
+  }
+
+  public archetype() : Archetype {
+    return this._archetype;
+  }
+
+  public get lifePoints() : number {
+    return this._lifePoints;
+  }
+
+  public get strength() : number {
+    return this._strength;
+  }
+
+  public get defense() : number {
+    return this._defense;
+  }
+
+  public dexterity() : number {
+    return this._dexterity;
+  }
+
+  public get energy() : Energy {
+    return Object.freeze({ ...this._energy });
+  }
 
   static randomNumber(): number {
     return Math.floor(Math.random() * 10) + 1;
