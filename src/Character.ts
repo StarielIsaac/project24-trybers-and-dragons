@@ -39,8 +39,9 @@ export default class Character implements Fighter {
     };
     this._name = name; 
   }
-  attack(attackPoints: Fighter): void {
-    throw new Error('Method not implemented.');
+
+  attack(enemy: Fighter): void {
+    enemy.receiveDamage(this._strength);
   }
 
   special?(enemy: Fighter): void {
@@ -52,7 +53,17 @@ export default class Character implements Fighter {
   }
   
   receiveDamage(attackPoints: number): number {
-    throw new Error('Method not implemented.');
+    const damage = this._defense - attackPoints;
+    if (damage > 0) {
+      this._lifePoints -= damage;
+    }
+    if (damage <= 0) {
+      this._lifePoints -= 1;
+    }
+    if (this._lifePoints < 1) {
+      this._lifePoints = -1;
+    }
+    return this._lifePoints;
   }
 
   public race() : Race {
