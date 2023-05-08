@@ -45,11 +45,15 @@ export default class Character implements Fighter {
   }
 
   special?(enemy: Fighter): void {
-    throw new Error('Method not implemented.');
+    enemy.receiveDamage(this._strength * 3);
   }
 
   levelUp(): void {
-    throw new Error('Method not implemented.');
+    const randomValue = Character.randomNumber();
+    this._maxLifePoints += randomValue;
+    this._strength += randomValue;
+    this._dexterity += randomValue;
+    this._defense += randomValue;
   }
   
   receiveDamage(attackPoints: number): number {
